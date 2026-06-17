@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: "buyfakett/jenkins"
+  IMAGE_NAME: "muen/jenkins"
   JENKINS_VERSION: "2.569"
   GOLANG_VERSION: "1.26.4"
 

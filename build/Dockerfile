@@ -42,6 +42,8 @@ locale-gen zh_CN.UTF-8 && \
 update-locale LANG=zh_CN.UTF-8 && \
 # 基础软件安装
 apt-get install -y zip unzip git curl subversion openjdk-8-jdk openjdk-11-jdk openjdk-21-jdk openjdk-25-jdk python3 python3-pip screen net-tools telnet vim wget eza && \
+# ansible
+apt-get install -y ansible openssh-client ca-certificates && \
 echo "alias ll='eza -al --color=always'" >> /root/.bashrc && \
 # 安装 docker
 install -m 0755 -d /etc/apt/keyrings && \

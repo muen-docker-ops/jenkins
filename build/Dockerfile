@@ -32,6 +32,9 @@ go env -w GOPATH=/data/app/golang/go
 # upx
 COPY upx /usr/local/bin/upx
 
+# aws cli install script
+COPY aws_cli_init.sh /tmp
+
 # svn中文乱码
 ENV LANG=zh_CN.UTF-8
 RUN echo "deb http://ftp.de.debian.org/debian sid main " >> /etc/apt/sources.list && \
@@ -42,6 +45,8 @@ locale-gen zh_CN.UTF-8 && \
 update-locale LANG=zh_CN.UTF-8 && \
 # 基础软件安装
 apt-get install -y zip unzip git curl subversion openjdk-8-jdk openjdk-11-jdk openjdk-21-jdk openjdk-25-jdk python3 python3-pip screen net-tools telnet vim wget eza && \
+# aws cli安装
+cd /tmp && chmod +x aws_cli_init.sh && ./aws_cli_init.sh && \
 # ansible
 apt-get install -y ansible openssh-client ca-certificates && \
 echo "alias ll='eza -al --color=always'" >> /root/.bashrc && \
